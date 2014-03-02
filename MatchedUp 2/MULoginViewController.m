@@ -190,11 +190,13 @@
 #pragma mark - NSURLConnectionDataDelegate
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    NSLog(@"Connection did receive data");
     [self.imageData appendData:data];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSLog(@"Connection did finish loading");
     UIImage *profileImage = [UIImage imageWithData:self.imageData];
     [self uploadPFFileToParse:profileImage];
 }
