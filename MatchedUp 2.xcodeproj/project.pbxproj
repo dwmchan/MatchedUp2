@@ -26,6 +26,8 @@
 		596F9D5018C329C9005C0F97 /* MUSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D4F18C329C9005C0F97 /* MUSettingsViewController.m */; };
 		596F9D5818C32E50005C0F97 /* MUEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D5718C32E50005C0F97 /* MUEditProfileViewController.m */; };
 		59E0DD0418C3307600B0354E /* MUProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E0DD0318C3307600B0354E /* MUProfileViewController.m */; };
+		59E414BB18C3579B00388504 /* MUTestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E414BA18C3579B00388504 /* MUTestUser.m */; };
+		59E414BD18C3580900388504 /* panda_pic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 59E414BC18C3580900388504 /* panda_pic.jpeg */; };
 		7D74EE5370A64845AAC1480D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFF63FE7EFB40BB841DD667 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,9 @@
 		596F9D5718C32E50005C0F97 /* MUEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUEditProfileViewController.m; path = "MatchedUp 2/MUEditProfileViewController.m"; sourceTree = "<group>"; };
 		59E0DD0218C3307600B0354E /* MUProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MUProfileViewController.h; path = "MatchedUp 2/MUProfileViewController.h"; sourceTree = "<group>"; };
 		59E0DD0318C3307600B0354E /* MUProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUProfileViewController.m; path = "MatchedUp 2/MUProfileViewController.m"; sourceTree = "<group>"; };
+		59E414B918C3579B00388504 /* MUTestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MUTestUser.h; path = "MatchedUp 2/MUTestUser.h"; sourceTree = "<group>"; };
+		59E414BA18C3579B00388504 /* MUTestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUTestUser.m; path = "MatchedUp 2/MUTestUser.m"; sourceTree = "<group>"; };
+		59E414BC18C3580900388504 /* panda_pic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = panda_pic.jpeg; sourceTree = "<group>"; };
 		65F1B0E0C2FB43C4AB6DC38A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EEFF63FE7EFB40BB841DD667 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -141,6 +146,7 @@
 				596F9D4D18C329A6005C0F97 /* Settings */,
 				596F9D5518C32E33005C0F97 /* EditProfile */,
 				59E0DD0118C3305800B0354E /* Profile */,
+				59E414B818C3576D00388504 /* CreateParseUser */,
 				596F9D2418C2ACFC005C0F97 /* Images.xcassets */,
 				596F9D1018C2ACFB005C0F97 /* Supporting Files */,
 			);
@@ -150,6 +156,7 @@
 		596F9D1018C2ACFB005C0F97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59E414BC18C3580900388504 /* panda_pic.jpeg */,
 				596F9D4518C2E8D2005C0F97 /* MUConstants.h */,
 				596F9D4618C2E8D2005C0F97 /* MUConstants.m */,
 				596F9D1118C2ACFB005C0F97 /* MatchedUp 2-Info.plist */,
@@ -222,6 +229,16 @@
 				59E0DD0318C3307600B0354E /* MUProfileViewController.m */,
 			);
 			name = Profile;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		59E414B818C3576D00388504 /* CreateParseUser */ = {
+			isa = PBXGroup;
+			children = (
+				59E414B918C3579B00388504 /* MUTestUser.h */,
+				59E414BA18C3579B00388504 /* MUTestUser.m */,
+			);
+			name = CreateParseUser;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -305,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				596F9D2518C2ACFC005C0F97 /* Images.xcassets in Resources */,
+				59E414BD18C3580900388504 /* panda_pic.jpeg in Resources */,
 				596F9D1418C2ACFB005C0F97 /* InfoPlist.strings in Resources */,
 				596F9D1D18C2ACFC005C0F97 /* Main.storyboard in Resources */,
 			);
@@ -366,6 +384,7 @@
 				596F9D1618C2ACFC005C0F97 /* main.m in Sources */,
 				59E0DD0418C3307600B0354E /* MUProfileViewController.m in Sources */,
 				596F9D4718C2E8D2005C0F97 /* MUConstants.m in Sources */,
+				59E414BB18C3579B00388504 /* MUTestUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

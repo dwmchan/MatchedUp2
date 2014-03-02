@@ -7,6 +7,7 @@
 //
 
 #import "MUHomeViewController.h"
+#import "MUTestUser.h"
 
 @interface MUHomeViewController ()
 
@@ -46,6 +47,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //[MUTestUser saveTestUserToParse];
+    
+    
     self.likeButton.enabled = NO;
     self.dislikeButton.enabled = NO;
     self.infoButton.enabled = NO;
@@ -53,6 +57,7 @@
     self.currentPhotoIndex = 0;
     
     PFQuery *query = [PFQuery queryWithClassName:kCCPhotoClassKey];
+    [query whereKey:kCCPhotoUserKey notEqualTo:[PFUser currentUser]];
     [query includeKey:kCCPhotoUserKey];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
