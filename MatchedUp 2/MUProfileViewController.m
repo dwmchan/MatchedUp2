@@ -16,13 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tagLineLabel;
 
 
-
-
-
-
-
-
-
 @end
 
 @implementation MUProfileViewController
@@ -40,6 +33,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    PFFile *pictureFile = self.photo[kCCPhotoPictureKey];
+    [pictureFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        self.profilePictureImageView.image = [UIImage imageWithData:data];
+        
+    }];
+    
+    PFUser *user = self.photo[kCCPhotoUserKey];
+    self.locationLabel.text = user[kCCUserProfileKey][kCCUserProfileLocationKey];
+    self.ageLabel.text = [NSString stringWithFormat:@"%@",user[kCCUserProfileKey][kCCUserProfileAgeKey]];
+    self.statusLabel.text = user[kCCUserProfileKey][kCCUserProfileRelationshipStatusKey];
+    self.tagLineLabel.text = user[kCCUserTagLineKey];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

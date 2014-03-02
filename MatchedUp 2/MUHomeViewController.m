@@ -8,6 +8,8 @@
 
 #import "MUHomeViewController.h"
 #import "MUTestUser.h"
+#import "MUProfileViewController.h"
+
 
 @interface MUHomeViewController ()
 
@@ -77,6 +79,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"homeToProfileSegue"]) {
+        MUProfileViewController *profileVC = segue.destinationViewController;
+        profileVC.photo = self.photo;
+    }
+}
+
+
+
 #pragma mark - IBActions
 
 - (IBAction)likeButtonPressed:(UIButton *)sender
@@ -91,7 +103,7 @@
 
 - (IBAction)infoButtonPressed:(UIButton *)sender
 {
-
+    [self performSegueWithIdentifier:@"homeToProfileSegue" sender:nil];
 }
 
 - (IBAction)chatBarButtonItemPressed:(UIBarButtonItem *)sender
@@ -154,6 +166,7 @@
                 }
                 self.likeButton.enabled = YES;
                 self.dislikeButton.enabled = YES;
+                self.infoButton.enabled = YES;
             }
         }];
                                         

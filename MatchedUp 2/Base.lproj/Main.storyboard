@@ -237,6 +237,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RnQ-xM-dWm"/>
                     <connections>
+                        <outlet property="ageLabel" destination="jay-xz-eud" id="JpO-jb-woo"/>
                         <outlet property="ageSlider" destination="P0L-wZ-VpS" id="W3B-wP-YUi"/>
                         <outlet property="editProfileButton" destination="dkJ-8C-LM2" id="zAU-6X-O8w"/>
                         <outlet property="logoutButton" destination="HRn-F2-doc" id="eO6-YT-hua"/>
