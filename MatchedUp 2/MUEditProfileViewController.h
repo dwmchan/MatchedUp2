@@ -1,5 +1,5 @@
 //
-//  MUFirstViewController.h
+//  MUEditProfileViewController.h
 //  MatchedUp 2
 //
 //  Created by Donald Chan on 2/03/2014.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MUFirstViewController : UIViewController
+@interface MUEditProfileViewController : UIViewController
 
 @end

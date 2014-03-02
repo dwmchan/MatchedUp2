@@ -1,5 +1,5 @@
 //
-//  MUSecondViewController.h
+//  MUSettingsViewController.h
 //  MatchedUp 2
 //
 //  Created by Donald Chan on 2/03/2014.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MUSecondViewController : UIViewController
+@interface MUSettingsViewController : UIViewController
 
 @end

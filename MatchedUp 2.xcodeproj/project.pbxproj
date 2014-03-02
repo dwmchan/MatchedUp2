@@ -14,8 +14,6 @@
 		596F9D1618C2ACFC005C0F97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D1518C2ACFC005C0F97 /* main.m */; };
 		596F9D1A18C2ACFC005C0F97 /* MUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D1918C2ACFC005C0F97 /* MUAppDelegate.m */; };
 		596F9D1D18C2ACFC005C0F97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596F9D1B18C2ACFC005C0F97 /* Main.storyboard */; };
-		596F9D2018C2ACFC005C0F97 /* MUFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D1F18C2ACFC005C0F97 /* MUFirstViewController.m */; };
-		596F9D2318C2ACFC005C0F97 /* MUSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D2218C2ACFC005C0F97 /* MUSecondViewController.m */; };
 		596F9D2518C2ACFC005C0F97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596F9D2418C2ACFC005C0F97 /* Images.xcassets */; };
 		596F9D2C18C2ACFC005C0F97 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596F9D2B18C2ACFC005C0F97 /* XCTest.framework */; };
 		596F9D2D18C2ACFC005C0F97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596F9D0918C2ACFB005C0F97 /* Foundation.framework */; };
@@ -24,6 +22,10 @@
 		596F9D3818C2ACFC005C0F97 /* MatchedUp_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D3718C2ACFC005C0F97 /* MatchedUp_2Tests.m */; };
 		596F9D4318C2B316005C0F97 /* MULoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D4218C2B316005C0F97 /* MULoginViewController.m */; };
 		596F9D4718C2E8D2005C0F97 /* MUConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D4618C2E8D2005C0F97 /* MUConstants.m */; };
+		596F9D4C18C310C4005C0F97 /* MUHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D4B18C310C4005C0F97 /* MUHomeViewController.m */; };
+		596F9D5018C329C9005C0F97 /* MUSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D4F18C329C9005C0F97 /* MUSettingsViewController.m */; };
+		596F9D5818C32E50005C0F97 /* MUEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596F9D5718C32E50005C0F97 /* MUEditProfileViewController.m */; };
+		59E0DD0418C3307600B0354E /* MUProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E0DD0318C3307600B0354E /* MUProfileViewController.m */; };
 		7D74EE5370A64845AAC1480D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFF63FE7EFB40BB841DD667 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,10 +51,6 @@
 		596F9D1818C2ACFC005C0F97 /* MUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAppDelegate.h; sourceTree = "<group>"; };
 		596F9D1918C2ACFC005C0F97 /* MUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAppDelegate.m; sourceTree = "<group>"; };
 		596F9D1C18C2ACFC005C0F97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		596F9D1E18C2ACFC005C0F97 /* MUFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUFirstViewController.h; sourceTree = "<group>"; };
-		596F9D1F18C2ACFC005C0F97 /* MUFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUFirstViewController.m; sourceTree = "<group>"; };
-		596F9D2118C2ACFC005C0F97 /* MUSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUSecondViewController.h; sourceTree = "<group>"; };
-		596F9D2218C2ACFC005C0F97 /* MUSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUSecondViewController.m; sourceTree = "<group>"; };
 		596F9D2418C2ACFC005C0F97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		596F9D2A18C2ACFC005C0F97 /* MatchedUp 2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MatchedUp 2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		596F9D2B18C2ACFC005C0F97 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -63,6 +61,14 @@
 		596F9D4218C2B316005C0F97 /* MULoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MULoginViewController.m; sourceTree = "<group>"; };
 		596F9D4518C2E8D2005C0F97 /* MUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUConstants.h; sourceTree = "<group>"; };
 		596F9D4618C2E8D2005C0F97 /* MUConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUConstants.m; sourceTree = "<group>"; };
+		596F9D4A18C310C4005C0F97 /* MUHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUHomeViewController.h; sourceTree = "<group>"; };
+		596F9D4B18C310C4005C0F97 /* MUHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUHomeViewController.m; sourceTree = "<group>"; };
+		596F9D4E18C329C9005C0F97 /* MUSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSettingsViewController.h; sourceTree = "<group>"; };
+		596F9D4F18C329C9005C0F97 /* MUSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSettingsViewController.m; sourceTree = "<group>"; };
+		596F9D5618C32E50005C0F97 /* MUEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MUEditProfileViewController.h; path = "MatchedUp 2/MUEditProfileViewController.h"; sourceTree = "<group>"; };
+		596F9D5718C32E50005C0F97 /* MUEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUEditProfileViewController.m; path = "MatchedUp 2/MUEditProfileViewController.m"; sourceTree = "<group>"; };
+		59E0DD0218C3307600B0354E /* MUProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MUProfileViewController.h; path = "MatchedUp 2/MUProfileViewController.h"; sourceTree = "<group>"; };
+		59E0DD0318C3307600B0354E /* MUProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUProfileViewController.m; path = "MatchedUp 2/MUProfileViewController.m"; sourceTree = "<group>"; };
 		65F1B0E0C2FB43C4AB6DC38A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EEFF63FE7EFB40BB841DD667 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,10 +137,10 @@
 				596F9D1918C2ACFC005C0F97 /* MUAppDelegate.m */,
 				596F9D1B18C2ACFC005C0F97 /* Main.storyboard */,
 				596F9D4418C2B36D005C0F97 /* Login */,
-				596F9D1E18C2ACFC005C0F97 /* MUFirstViewController.h */,
-				596F9D1F18C2ACFC005C0F97 /* MUFirstViewController.m */,
-				596F9D2118C2ACFC005C0F97 /* MUSecondViewController.h */,
-				596F9D2218C2ACFC005C0F97 /* MUSecondViewController.m */,
+				596F9D4818C31085005C0F97 /* Home */,
+				596F9D4D18C329A6005C0F97 /* Settings */,
+				596F9D5518C32E33005C0F97 /* EditProfile */,
+				59E0DD0118C3305800B0354E /* Profile */,
 				596F9D2418C2ACFC005C0F97 /* Images.xcassets */,
 				596F9D1018C2ACFB005C0F97 /* Supporting Files */,
 			);
@@ -179,6 +185,44 @@
 				596F9D4218C2B316005C0F97 /* MULoginViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		596F9D4818C31085005C0F97 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				596F9D4A18C310C4005C0F97 /* MUHomeViewController.h */,
+				596F9D4B18C310C4005C0F97 /* MUHomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		596F9D4D18C329A6005C0F97 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				596F9D4E18C329C9005C0F97 /* MUSettingsViewController.h */,
+				596F9D4F18C329C9005C0F97 /* MUSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		596F9D5518C32E33005C0F97 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				596F9D5618C32E50005C0F97 /* MUEditProfileViewController.h */,
+				596F9D5718C32E50005C0F97 /* MUEditProfileViewController.m */,
+			);
+			name = EditProfile;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		59E0DD0118C3305800B0354E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				59E0DD0218C3307600B0354E /* MUProfileViewController.h */,
+				59E0DD0318C3307600B0354E /* MUProfileViewController.m */,
+			);
+			name = Profile;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,11 +358,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596F9D2318C2ACFC005C0F97 /* MUSecondViewController.m in Sources */,
-				596F9D2018C2ACFC005C0F97 /* MUFirstViewController.m in Sources */,
 				596F9D4318C2B316005C0F97 /* MULoginViewController.m in Sources */,
+				596F9D5018C329C9005C0F97 /* MUSettingsViewController.m in Sources */,
+				596F9D4C18C310C4005C0F97 /* MUHomeViewController.m in Sources */,
 				596F9D1A18C2ACFC005C0F97 /* MUAppDelegate.m in Sources */,
+				596F9D5818C32E50005C0F97 /* MUEditProfileViewController.m in Sources */,
 				596F9D1618C2ACFC005C0F97 /* main.m in Sources */,
+				59E0DD0418C3307600B0354E /* MUProfileViewController.m in Sources */,
 				596F9D4718C2E8D2005C0F97 /* MUConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
