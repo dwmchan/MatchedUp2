@@ -9,8 +9,21 @@
 #import "MUConstants.h"
 
 @implementation MUConstants
+#pragma mark - User Class
+NSString *const kCCUserProfileKey               = @"profile";
+NSString *const kCCUserProfileNameKey           = @"name";
+NSString *const kCCUserProfileFirstNameKey      = @"firstName";
+NSString *const kCCUserProfileLocationKey       = @"location";
+NSString *const kCCUserProfileGenderKey         = @"gender";
+NSString *const kCCUserProfileBirthdayKey       = @"birthday";
+NSString *const kCCUserProfileInterestedInKey   = @"interested_in";
+NSString *const kCCUserProfilePictureURL        = @"pictureURL";
 
-NSString *const kCCUserProfileKey = @"profile";
+#pragma mark - Photo Class
+NSString *const kCCPhotoClassKey            = @"Photo";
+NSString *const kCCPhotoUserKey             = @"user";
+NSString *const kCCPhotoPictureKey          = @"image";
+
 
 
 @end
