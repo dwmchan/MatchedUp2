@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 4
 #define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 0
 
+// MessagesTableViewController
+#define COCOAPODS_POD_AVAILABLE_MessagesTableViewController
+#define COCOAPODS_VERSION_MAJOR_MessagesTableViewController 1
+#define COCOAPODS_VERSION_MINOR_MessagesTableViewController 0
+#define COCOAPODS_VERSION_PATCH_MessagesTableViewController 0
+
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1

@@ -10,10 +10,28 @@
 
 @interface MUChatViewController ()
 
+@property (strong, nonatomic) PFUser *withUser;
+@property (strong, nonatomic) PFUser *currentUser;
+
+@property (strong, nonatomic) NSTimer *chatsTimer;
+@property (nonatomic) BOOL initialLoadComplete;
+@property (strong, nonatomic) NSMutableArray *chats;
+
+
 @end
 
 @implementation MUChatViewController
 
+#pragma mark - Lazy Instantiation
+-(NSMutableArray *)chats
+{
+    if (!_chats) {
+        _chats = [[NSMutableArray alloc] init];
+    }
+    return _chats;
+}
+
+#pragma mark - Initial Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +45,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.delegate = self;
+    self.dataSource = self;
+    
+    [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
+    self.messageInputView.textView.placeHolder = @"New Message";
+    [self setBackgroundColor:[UIColor whiteColor]];
+    self.currentUser = [PFUser currentUser];
+    PFUser *testUser1 = self.chatRoom[@"user1"];
+    if ([testUser1.objectId isEqual:self.currentUser.objectId]) {
+        self.withUser = self.chatRoom[@"user2"];
+    }
+    else {
+        self.withUser = self.chatRoom[@"user1"];
+    }
+    self.title = self.withUser[@"profile"][@"firstName"];
+    self.initialLoadComplete = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,5 +70,69 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - TableViewDataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.chats count];
+}
+
+#pragma mark - TableViewDelegate
+
+-(void)didSendText:(NSString *)text fromSender:(NSString *)sender onDate:(NSDate *)date
+{
+    if (text.length != 0) {
+        PFObject *chat = [PFObject objectWithClassName:@"Chat"];
+        [chat setObject:self.chatRoom forKey:@"chatRoom"];
+        [chat setObject:self.currentUser forKey:@"fromUser"];
+        [chat setObject:self.withUser forKey:@"toUser"];
+        [chat setObject:text forKey:@"text"];
+        [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self.chats addObject:chat];
+            [JSMessageSoundEffect playMessageSentSound];
+            [self.tableView reloadData];
+            [self finishSend];
+            [self scrollToBottomAnimated:YES];
+        }];
+    }
+}
+
+-(JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *chat = self.chats[indexPath.row];
+    PFUser *testFromUser = chat[@"fromUser"];
+    
+    if ([testFromUser.objectId isEqual:self.currentUser.objectId]) {
+        return JSBubbleMessageTypeOutgoing;
+    }
+    else {
+        return JSBubbleMessageTypeIncoming;
+    }
+}
+
+-(UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *chat = self.chats[indexPath.row];
+    PFUser *testFromUser = chat[@"fromUser"];
+    
+    if ([testFromUser.objectId isEqual:self.currentUser.objectId]) {
+        return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleGreenColor]];
+    }
+    else {
+        return [JSBubbleImageViewFactory bubbleImageViewForType:type color:[UIColor js_bubbleLightGrayColor]];
+    }
+}
+
+
+-(JSMessagesViewTimestampPolicy) timestampPolicy
+{
+    
+}
+
+
+
+
+
 
 @end
