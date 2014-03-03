@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		593E4AB418C3FFD4003CC75E /* MUMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E4AB318C3FFD4003CC75E /* MUMatchViewController.m */; };
+		593E4AB818C40385003CC75E /* MUMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E4AB718C40385003CC75E /* MUMatchesViewController.m */; };
+		593E4ABC18C406B9003CC75E /* MUChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E4ABB18C406B9003CC75E /* MUChatViewController.m */; };
 		596F9D0A18C2ACFB005C0F97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596F9D0918C2ACFB005C0F97 /* Foundation.framework */; };
 		596F9D0C18C2ACFB005C0F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596F9D0B18C2ACFB005C0F97 /* CoreGraphics.framework */; };
 		596F9D0E18C2ACFB005C0F97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 596F9D0D18C2ACFB005C0F97 /* UIKit.framework */; };
@@ -42,6 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		593E4AB218C3FFD4003CC75E /* MUMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUMatchViewController.h; sourceTree = "<group>"; };
+		593E4AB318C3FFD4003CC75E /* MUMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUMatchViewController.m; sourceTree = "<group>"; };
+		593E4AB618C40385003CC75E /* MUMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUMatchesViewController.h; sourceTree = "<group>"; };
+		593E4AB718C40385003CC75E /* MUMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUMatchesViewController.m; sourceTree = "<group>"; };
+		593E4ABA18C406B9003CC75E /* MUChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUChatViewController.h; sourceTree = "<group>"; };
+		593E4ABB18C406B9003CC75E /* MUChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUChatViewController.m; sourceTree = "<group>"; };
 		596F9D0618C2ACFB005C0F97 /* MatchedUp 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MatchedUp 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		596F9D0918C2ACFB005C0F97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		596F9D0B18C2ACFB005C0F97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +112,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		593E4AB118C3FF9D003CC75E /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				593E4AB218C3FFD4003CC75E /* MUMatchViewController.h */,
+				593E4AB318C3FFD4003CC75E /* MUMatchViewController.m */,
+			);
+			name = Match;
+			sourceTree = "<group>";
+		};
+		593E4AB518C4035D003CC75E /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+				593E4AB618C40385003CC75E /* MUMatchesViewController.h */,
+				593E4AB718C40385003CC75E /* MUMatchesViewController.m */,
+			);
+			name = Matches;
+			sourceTree = "<group>";
+		};
+		593E4AB918C403EB003CC75E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				593E4ABA18C406B9003CC75E /* MUChatViewController.h */,
+				593E4ABB18C406B9003CC75E /* MUChatViewController.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		596F9CFD18C2ACFB005C0F97 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +182,9 @@
 				596F9D4D18C329A6005C0F97 /* Settings */,
 				596F9D5518C32E33005C0F97 /* EditProfile */,
 				59E0DD0118C3305800B0354E /* Profile */,
+				593E4AB118C3FF9D003CC75E /* Match */,
+				593E4AB518C4035D003CC75E /* Matches */,
+				593E4AB918C403EB003CC75E /* Chat */,
 				59E414B818C3576D00388504 /* CreateParseUser */,
 				596F9D2418C2ACFC005C0F97 /* Images.xcassets */,
 				596F9D1018C2ACFB005C0F97 /* Supporting Files */,
@@ -382,9 +421,12 @@
 				596F9D1A18C2ACFC005C0F97 /* MUAppDelegate.m in Sources */,
 				596F9D5818C32E50005C0F97 /* MUEditProfileViewController.m in Sources */,
 				596F9D1618C2ACFC005C0F97 /* main.m in Sources */,
+				593E4ABC18C406B9003CC75E /* MUChatViewController.m in Sources */,
+				593E4AB418C3FFD4003CC75E /* MUMatchViewController.m in Sources */,
 				59E0DD0418C3307600B0354E /* MUProfileViewController.m in Sources */,
 				596F9D4718C2E8D2005C0F97 /* MUConstants.m in Sources */,
 				59E414BB18C3579B00388504 /* MUTestUser.m in Sources */,
+				593E4AB818C40385003CC75E /* MUMatchesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
