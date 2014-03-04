@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MessagesTableViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>075DC524F46C4AEC82DD0A7C</key>
+		<key>6AB7D3B43FE347F4BB23FF1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>764C4BF321D042478A389486</key>
+		<key>F202838F52394FE281E753B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1EB8D6B0B6446E3AD73F9BC</key>
+		<key>F95BF44A1D064EE183474285</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A63768B5AE4D4A4699B05D60</key>
+		<key>FAA31ECB5A0849AF952252F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE49B99BE1014D9492E18CFF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6C7940A4E714AD0B323D2D9</key>
+		<key>FF622F33D5D04BC0905AD715</key>
 		<dict>
 			<key>primary</key>
 			<true/>

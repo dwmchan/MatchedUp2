@@ -110,6 +110,7 @@
         likedUser = [chatRoom objectForKey:@"user1"];
     }
     cell.textLabel.text = likedUser[@"profile"][@"firstName"];
+    cell.detailTextLabel.text = chatRoom[@"createdAt"];
     
     //cell.imageView.image = placeholder image
     
@@ -127,13 +128,12 @@
             }];
         }
     }];
-    
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //See Lecture 347 for reason why sender is set to indexPath and not nil.
     [self performSegueWithIdentifier:@"matchesToChatSegue" sender:indexPath];

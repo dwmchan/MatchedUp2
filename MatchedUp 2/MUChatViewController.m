@@ -63,12 +63,21 @@
     self.title = self.withUser[@"profile"][@"firstName"];
     self.initialLoadComplete = NO;
     
+    [self checkForNewChats];
+    self.chatsTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.chatsTimer invalidate];
+    self.chatsTimer = nil;
 }
 
 #pragma mark - TableViewDataSource
@@ -79,10 +88,10 @@
 }
 
 #pragma mark - TableViewDelegate
-
--(void)didSendText:(NSString *)text fromSender:(NSString *)sender onDate:(NSDate *)date
+-(void)didSendText:(NSString *)text
 {
     if (text.length != 0) {
+        //Create Chat Class
         PFObject *chat = [PFObject objectWithClassName:@"Chat"];
         [chat setObject:self.chatRoom forKey:@"chatRoom"];
         [chat setObject:self.currentUser forKey:@"fromUser"];
@@ -97,6 +106,7 @@
         }];
     }
 }
+
 
 -(JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -124,10 +134,88 @@
     }
 }
 
+#pragma mark - Additional Methods
 
 -(JSMessagesViewTimestampPolicy) timestampPolicy
 {
+    return JSMessagesViewTimestampPolicyAll;
+}
+
+-(JSMessagesViewAvatarPolicy) avatarPolicy
+{
+    return JSMessagesViewAvatarPolicyNone;
+}
+
+-(JSMessagesViewSubtitlePolicy)subtitlePolicy
+{
+    return JSMessagesViewSubtitlePolicyNone;
+}
+
+-(JSMessageInputViewStyle) inputViewStyle
+{
+    return JSMessageInputViewStyleFlat;
+}
+
+
+#pragma mark - Messages View Delegate OPTIONAL
+
+-(void)configureCell:(JSBubbleMessageCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell messageType] == JSBubbleMessageTypeOutgoing) {
+        cell.bubbleView.textView.textColor = [UIColor whiteColor];
+    }
+}
+
+-(BOOL)shouldPreventScrollToBottomWhileUserScrolling
+{
+    return YES;
+}
+
+#pragma mark - Messages View Data Source REQUIRED
+
+-(NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *chat = self.chats[indexPath.row];
+    NSString *message = chat[@"text"];
+    return message;
+}
+
+-(NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+-(UIImageView *)avatarImageViewForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+-(NSString *)subtitleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+#pragma mark - Helper Methods
+-(void) checkForNewChats
+{
+    int oldChatCount = [self.chats count];
     
+    PFQuery *queryForChats = [PFQuery queryWithClassName:@"Chat"];
+    [queryForChats whereKey:@"chatRoom" equalTo:self.chatRoom];
+    [queryForChats orderByAscending:@"createdAt"];
+    [queryForChats findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (self.initialLoadComplete == NO || oldChatCount != [objects count]) {
+                self.chats = [objects mutableCopy];
+                [self.tableView reloadData];
+                if (self.initialLoadComplete == YES) {
+                    [JSMessageSoundEffect playMessageReceivedSound];
+                }
+                self.initialLoadComplete = YES;
+                [self scrollToBottomAnimated:YES];
+            }
+        }
+    }];
 }
 
 

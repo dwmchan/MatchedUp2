@@ -58,7 +58,7 @@
               bubbleImageView:(UIImageView *)bubbleImageView
 {
     self = [super initWithFrame:frame];
-    if (self) {
+    if(self) {
         [self setup];
         
         _type = bubleType;
@@ -79,11 +79,12 @@
         textView.contentInset = UIEdgeInsetsZero;
         textView.scrollIndicatorInsets = UIEdgeInsetsZero;
         textView.contentOffset = CGPointZero;
+        textView.dataDetectorTypes = UIDataDetectorTypeNone;
         [self addSubview:textView];
         [self bringSubviewToFront:textView];
         _textView = textView;
         
-        if ([_textView respondsToSelector:@selector(textContainerInset)]) {
+        if([_textView respondsToSelector:@selector(textContainerInset)]) {
             _textView.textContainerInset = UIEdgeInsetsMake(8.0f, 4.0f, 2.0f, 4.0f);
         }
         
@@ -141,7 +142,7 @@
                        context:(void *)context
 {
     if (object == self.textView) {
-        if ([keyPath isEqualToString:@"text"]
+        if([keyPath isEqualToString:@"text"]
            || [keyPath isEqualToString:@"font"]
            || [keyPath isEqualToString:@"textColor"]) {
             [self setNeedsLayout];
@@ -194,7 +195,7 @@
     
     CGFloat textX = self.bubbleImageView.frame.origin.x;
     
-    if (self.type == JSBubbleMessageTypeIncoming) {
+    if(self.type == JSBubbleMessageTypeIncoming) {
         textX += (self.bubbleImageView.image.capInsets.left / 2.0f);
     }
     
@@ -215,20 +216,8 @@
                          [txt js_numberOfLines]) * [JSMessageInputView textViewLineHeight];
     maxHeight += kJSAvatarImageSize;
     
-    CGSize stringSize;
-    
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_0) {
-        CGRect stringRect = [txt boundingRectWithSize:CGSizeMake(maxWidth, maxHeight)
-                                              options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:@{ NSFontAttributeName : [[JSBubbleView appearance] font] }
-                                              context:nil];
-        
-        stringSize = CGRectIntegral(stringRect).size;
-    }
-    else {
-        stringSize = [txt sizeWithFont:[[JSBubbleView appearance] font]
-                     constrainedToSize:CGSizeMake(maxWidth, maxHeight)];
-    }
+    CGSize stringSize = [txt sizeWithFont:[[JSBubbleView appearance] font]
+                        constrainedToSize:CGSizeMake(maxWidth, maxHeight)];
     
     return CGSizeMake(roundf(stringSize.width), roundf(stringSize.height));
 }

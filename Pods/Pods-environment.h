@@ -14,21 +14,15 @@
 
 // JSMessagesViewController
 #define COCOAPODS_POD_AVAILABLE_JSMessagesViewController
-#define COCOAPODS_VERSION_MAJOR_JSMessagesViewController 4
-#define COCOAPODS_VERSION_MINOR_JSMessagesViewController 0
-#define COCOAPODS_VERSION_PATCH_JSMessagesViewController 2
+#define COCOAPODS_VERSION_MAJOR_JSMessagesViewController 3
+#define COCOAPODS_VERSION_MINOR_JSMessagesViewController 4
+#define COCOAPODS_VERSION_PATCH_JSMessagesViewController 3
 
 // JSQSystemSoundPlayer
 #define COCOAPODS_POD_AVAILABLE_JSQSystemSoundPlayer
 #define COCOAPODS_VERSION_MAJOR_JSQSystemSoundPlayer 1
 #define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 4
 #define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 0
-
-// MessagesTableViewController
-#define COCOAPODS_POD_AVAILABLE_MessagesTableViewController
-#define COCOAPODS_VERSION_MAJOR_MessagesTableViewController 1
-#define COCOAPODS_VERSION_MINOR_MessagesTableViewController 0
-#define COCOAPODS_VERSION_PATCH_MessagesTableViewController 0
 
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse

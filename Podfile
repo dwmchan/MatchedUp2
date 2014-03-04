@@ -1,5 +1,4 @@
 platform :ios, '7.0'
 
 pod 'Parse'
-pod 'JSMessagesViewController'
-pod 'MessagesTableViewController'
+pod 'JSMessagesViewController','3.4.3'

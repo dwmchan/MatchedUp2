@@ -113,7 +113,7 @@
 
 - (IBAction)chatBarButtonItemPressed:(UIBarButtonItem *)sender
 {
-
+    [self performSegueWithIdentifier:@"homeToMatchesSegue" sender:nil];
 }
 - (IBAction)settingsBarButtonItemPressed:(UIBarButtonItem *)sender
 {
@@ -312,7 +312,7 @@
 -(void)presentMatchesViewController
 {
     [self dismissViewControllerAnimated:NO completion:^{
-        [self performSegueWithIdentifier:@"hometoMatchesSegue" sender:nil];
+        [self performSegueWithIdentifier:@"homeToMatchesSegue" sender:nil];
     }];
 }
 
