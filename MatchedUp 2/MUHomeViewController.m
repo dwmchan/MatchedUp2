@@ -131,11 +131,18 @@
 
 - (IBAction)likeButtonPressed:(UIButton *)sender
 {
+    Mixpanel *mixPanel = [Mixpanel sharedInstance];
+    [mixPanel track:@"Like"];
+    [mixPanel flush];
+    
     [self checkLike];
 }
 
 - (IBAction)dislikeButtonPressed:(UIButton *)sender
 {
+    Mixpanel *mixPanel = [Mixpanel sharedInstance];
+    [mixPanel track:@"Dislike"];
+    [mixPanel flush];
     [self checkDislike];
 }
 
@@ -346,24 +353,23 @@
         if ([objects count]>0) {
             //create our chatroom
             [self createChatRoom];
-            
         }
     }];
 }
 
 -(void) createChatRoom
 {
-    PFQuery *queryForChatRoom = [PFQuery queryWithClassName:kCCChatChatRoomKey];
+    PFQuery *queryForChatRoom = [PFQuery queryWithClassName:kCCChatRoomClassKey];
     [queryForChatRoom whereKey:kCCChatRoomUser1Key equalTo:[PFUser currentUser]];
     [queryForChatRoom whereKey:kCCChatRoomUser2Key equalTo:self.photo[kCCPhotoUserKey]];
-    PFQuery *queryForChatRoomInverse = [PFQuery queryWithClassName:kCCChatChatRoomKey];
+    PFQuery *queryForChatRoomInverse = [PFQuery queryWithClassName:kCCChatRoomClassKey];
     [queryForChatRoomInverse whereKey:kCCChatRoomUser1Key equalTo:self.photo[kCCPhotoUserKey]];
     [queryForChatRoomInverse whereKey:kCCChatRoomUser2Key equalTo:[PFUser currentUser]];
     
     PFQuery *combinedQuery = [PFQuery orQueryWithSubqueries:@[queryForChatRoom,queryForChatRoomInverse]];
     [combinedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([objects count] == 0) {
-            PFObject *chatroom = [PFObject objectWithClassName:kCCChatChatRoomKey];
+            PFObject *chatroom = [PFObject objectWithClassName:kCCChatRoomClassKey];
             [chatroom setObject:[PFUser currentUser] forKey:kCCChatRoomUser1Key];
             [chatroom setObject:self.photo[kCCPhotoUserKey] forKey:kCCChatRoomUser2Key];
             [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

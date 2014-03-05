@@ -18,6 +18,10 @@
                   clientKey:@"7qT1DkC6IkZjFaolRbkHuxliMDAF53pd1FYimoSH"];
     
     [PFFacebookUtils initializeFacebook];
+    
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    
+    
     NSString *defaultPrefsFile = [[NSBundle mainBundle]pathForResource:@"defaultPrefsFile" ofType:@"plist"];
     NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];

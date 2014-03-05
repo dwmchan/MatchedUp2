@@ -53,6 +53,6 @@ NSString *const kCCChatClassKey                         =@"Chat";
 NSString *const kCCChatChatRoomKey                      =@"chatRoom";
 NSString *const kCCChatFromUserKey                      =@"fromUser";
 NSString *const kCCChatToUserKey                        =@"toUser";
-NSString *const kCCChatTextKey                      =@"text";
+NSString *const kCCChatTextKey                          =@"text";
 
 @end

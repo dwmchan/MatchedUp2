@@ -64,14 +64,14 @@
 
 -(void) updateAvailableChatRooms
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"ChatRoom"];
-    [query whereKey:@"user1" equalTo:[PFUser currentUser]];
-    PFQuery *queryInverse = [PFQuery queryWithClassName:@"ChatRoom"];
-    [query whereKey:@"user2" equalTo:[PFUser currentUser]];
+    PFQuery *query = [PFQuery queryWithClassName:kCCChatRoomClassKey];
+    [query whereKey:kCCChatRoomUser1Key equalTo:[PFUser currentUser]];
+    PFQuery *queryInverse = [PFQuery queryWithClassName:kCCChatRoomClassKey];
+    [query whereKey:kCCChatRoomUser2Key equalTo:[PFUser currentUser]];
     PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
-    [queryCombined includeKey:@"chat"];
-    [queryCombined includeKey:@"user1"];
-    [queryCombined includeKey:@"user2"];
+    [queryCombined includeKey:kCCChatClassKey];
+    [queryCombined includeKey:kCCChatRoomUser1Key];
+    [queryCombined includeKey:kCCChatRoomUser2Key];
     [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self.availableChatRooms removeAllObjects];
@@ -101,21 +101,21 @@
     PFUser *likedUser;
     PFUser *currentUser = [PFUser currentUser];
     
-    PFUser *testUser1 = chatRoom[@"user1"];
+    PFUser *testUser1 = chatRoom[kCCChatRoomUser1Key];
     
     if ([testUser1.objectId isEqual:currentUser.objectId]) {
-        likedUser = [chatRoom objectForKey:@"user2"];
+        likedUser = [chatRoom objectForKey:kCCChatRoomUser2Key];
     }
     else {
-        likedUser = [chatRoom objectForKey:@"user1"];
+        likedUser = [chatRoom objectForKey:kCCChatRoomUser1Key];
     }
-    cell.textLabel.text = likedUser[@"profile"][@"firstName"];
+    cell.textLabel.text = likedUser[kCCUserProfileKey][kCCUserProfileFirstNameKey];
     cell.detailTextLabel.text = chatRoom[@"createdAt"];
     
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    PFQuery *queryForPhoto = [[PFQuery alloc] initWithClassName:@"Photo"];
-    [queryForPhoto whereKey:@"user" equalTo:likedUser];
+    PFQuery *queryForPhoto = [[PFQuery alloc] initWithClassName:kCCPhotoClassKey];
+    [queryForPhoto whereKey:kCCPhotoUserKey equalTo:likedUser];
     [queryForPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if ([objects count] > 0) {
             PFObject *photo = objects[0];
