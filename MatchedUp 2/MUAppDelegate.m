@@ -18,7 +18,13 @@
                   clientKey:@"7qT1DkC6IkZjFaolRbkHuxliMDAF53pd1FYimoSH"];
     
     [PFFacebookUtils initializeFacebook];
-
+    NSString *defaultPrefsFile = [[NSBundle mainBundle]pathForResource:@"defaultPrefsFile" ofType:@"plist"];
+    NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:12/255.0 green:158/255.0 blue:255/255.0 alpha:1.0], NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0]}];
+    
     return YES;
 }
 

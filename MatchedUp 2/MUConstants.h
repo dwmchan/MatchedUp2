@@ -45,4 +45,16 @@ extern NSString *const kCCSingleEnabledKey;
 extern NSString *const kCCAgeMaxKey;
 
 
+#pragma mark - ChatRoom
+extern NSString *const kCCChatRoomClassKey;
+extern NSString *const kCCChatRoomUser1Key;
+extern NSString *const kCCChatRoomUser2Key;
+
+#pragma mark - Chat
+extern NSString *const kCCChatClassKey;
+extern NSString *const kCCChatChatRoomKey;
+extern NSString *const kCCChatFromUserKey;
+extern NSString *const kCCChatToUserKey;
+extern NSString *const kCCChatTextKey;
+
 @end

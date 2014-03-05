@@ -38,11 +38,21 @@ NSString *const kCCActivityTypeLikeKey                  =@"like";
 NSString *const kCCActivityTypeDislikeKey               =@"dislike";
 
 #pragma mark - Settings
-NSString *const kCCMenEnabledKey                       =@"men";
-NSString *const kCCWomenEnabledKey                     =@"women";
-NSString *const kCCSingleEnabledKey                    =@"single";
-NSString *const kCCAgeMaxKey                           =@"ageMax";
+NSString *const kCCMenEnabledKey                        =@"men";
+NSString *const kCCWomenEnabledKey                      =@"women";
+NSString *const kCCSingleEnabledKey                     =@"single";
+NSString *const kCCAgeMaxKey                            =@"ageMax";
 
+#pragma mark - ChatRoom
+NSString *const kCCChatRoomClassKey                     =@"ChatRoom";
+NSString *const kCCChatRoomUser1Key                     =@"user1";
+NSString *const kCCChatRoomUser2Key                     =@"user2";
 
+#pragma mark - Chat
+NSString *const kCCChatClassKey                         =@"Chat";
+NSString *const kCCChatChatRoomKey                      =@"chatRoom";
+NSString *const kCCChatFromUserKey                      =@"fromUser";
+NSString *const kCCChatToUserKey                        =@"toUser";
+NSString *const kCCChatTextKey                      =@"text";
 
 @end

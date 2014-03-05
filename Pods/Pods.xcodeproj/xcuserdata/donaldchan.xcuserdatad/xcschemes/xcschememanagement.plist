@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Mixpanel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -31,32 +36,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>6AB7D3B43FE347F4BB23FF1B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F202838F52394FE281E753B0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F95BF44A1D064EE183474285</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FAA31ECB5A0849AF952252F8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FF622F33D5D04BC0905AD715</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
