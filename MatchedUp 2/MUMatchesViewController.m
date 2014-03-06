@@ -79,7 +79,6 @@
             [self.tableView reloadData];
         }
     }];
-
 }
 
 
@@ -102,17 +101,27 @@
     PFUser *currentUser = [PFUser currentUser];
     
     PFUser *testUser1 = chatRoom[kCCChatRoomUser1Key];
-    
-    NSLog(@"%@, %@", testUser1.objectId, likedUser.objectId);
-    
+    NSLog(@"currentUser - %@, testUser1 - %@",currentUser.objectId, testUser1.objectId);
+    NSLog(@"currentUser (hash) - %lu, testUser1 (hash) - %lu",(unsigned long)currentUser.objectId.hash, (unsigned long)testUser1.objectId.hash);
+
     if ([testUser1.objectId isEqual:currentUser.objectId]) {
+        NSLog(@"Yes Equal");
         likedUser = [chatRoom objectForKey:kCCChatRoomUser2Key];
     }
     else {
+        NSLog(@"No Not Equal");
         likedUser = [chatRoom objectForKey:kCCChatRoomUser1Key];
     }
+    
+    NSLog(@"MuMatchesVIewController Line 115: testUser1 - %@, likedUser - %@, currentUser - %@", testUser1.objectId, likedUser.objectId, currentUser.objectId);
+    
     cell.textLabel.text = likedUser[kCCUserProfileKey][kCCUserProfileFirstNameKey];
-    cell.detailTextLabel.text = chatRoom[@"createdAt"];
+    NSLog(@"%@", cell.textLabel.text);
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *stringFromDate = [formatter stringFromDate:chatRoom.createdAt];
+    cell.detailTextLabel.text = stringFromDate;
     
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     

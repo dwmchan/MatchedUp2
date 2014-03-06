@@ -304,7 +304,8 @@
         self.isLikedByCurrentUser = NO;
         self.isDislikedByCurrentUser = YES;
         [self.activities addObject:dislikeActivity];
-        [self setupNextPhoto];
+        [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(setupNextPhoto) userInfo:nil repeats:NO];
+        //[self setupNextPhoto];
     }];
 }
 
