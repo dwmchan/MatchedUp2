@@ -103,6 +103,8 @@
     
     PFUser *testUser1 = chatRoom[kCCChatRoomUser1Key];
     
+    NSLog(@"%@, %@", testUser1.objectId, likedUser.objectId);
+    
     if ([testUser1.objectId isEqual:currentUser.objectId]) {
         likedUser = [chatRoom objectForKey:kCCChatRoomUser2Key];
     }

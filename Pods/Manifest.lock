@@ -1,5 +1,6 @@
 PODS:
   - Facebook-iOS-SDK (3.12.0)
+  - google-plus-ios-sdk (1.5.0)
   - JSMessagesViewController (3.4.3):
     - JSQSystemSoundPlayer
   - JSQSystemSoundPlayer (1.4.0)
@@ -8,12 +9,14 @@ PODS:
     - Facebook-iOS-SDK (~> 3.11)
 
 DEPENDENCIES:
+  - google-plus-ios-sdk (~> 1.5)
   - JSMessagesViewController (= 3.4.3)
   - Mixpanel
   - Parse
 
 SPEC CHECKSUMS:
   Facebook-iOS-SDK: c09f7d80db5c48170ff834bc03ebe774c49d1f5b
+  google-plus-ios-sdk: 5bda2a87ec54320dc99a67c745a445bbdf22cc72
   JSMessagesViewController: 22a5d5467e96be1caf3b20e10198bd5425028649
   JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7
   Mixpanel: ddd79df92245a14d2b3064544d1e9ff037d8ac3a

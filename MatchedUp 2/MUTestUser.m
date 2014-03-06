@@ -13,15 +13,15 @@
 +(void)saveTestUserToParse
 {
     PFUser *newUser = [PFUser user];
-    newUser.username = @"user1";
-    newUser.password = @"password1";
+    newUser.username = @"user2";
+    newUser.password = @"password2";
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            NSDictionary *profile = @{kCCUserProfileAgeKey: @28, kCCUserProfileBirthdayKey: @"11/22/1985", kCCUserProfileFirstNameKey: @"Julie", kCCUserProfileGenderKey: @"female", kCCUserProfileLocationKey: @"Berlin, Germany", kCCUserProfileNameKey: @"Julie Adams"};
+            NSDictionary *profile = @{kCCUserProfileAgeKey: @28, kCCUserProfileBirthdayKey: @"04/14/1988", kCCUserProfileFirstNameKey: @"Ellie", kCCUserProfileGenderKey: @"female", kCCUserProfileLocationKey: @"Queensland, Australia", kCCUserProfileNameKey: @"Ellie Gonsalves"};
             [newUser setObject:profile forKey:kCCUserProfileKey];
             [newUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                UIImage *profileImage = [UIImage imageNamed:@"panda_pic.jpeg"];
+                UIImage *profileImage = [UIImage imageNamed:@"ellie_gonsalves.jpg"];
                 NSData *imageData = UIImageJPEGRepresentation(profileImage, 0.8);
                 PFFile *photoFile = [PFFile fileWithData:imageData];
                 [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

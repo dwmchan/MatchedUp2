@@ -287,7 +287,8 @@
         self.isDislikedByCurrentUser = NO;
         [self.activities addObject:likeActivity];
         [self checkForPhotoUserLikes];
-        [self setupNextPhoto];
+        [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(setupNextPhoto) userInfo:nil repeats:NO];
+        //[self setupNextPhoto];
     }];
     
 }
