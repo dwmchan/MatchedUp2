@@ -66,16 +66,19 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:kCCChatRoomClassKey];
     [query whereKey:kCCChatRoomUser1Key equalTo:[PFUser currentUser]];
+     
     PFQuery *queryInverse = [PFQuery queryWithClassName:kCCChatRoomClassKey];
     [query whereKey:kCCChatRoomUser2Key equalTo:[PFUser currentUser]];
+     
     PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
-    [queryCombined includeKey:kCCChatClassKey];
+    //[queryCombined includeKey:kCCChatRoomClassKey];
     [queryCombined includeKey:kCCChatRoomUser1Key];
     [queryCombined includeKey:kCCChatRoomUser2Key];
     [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self.availableChatRooms removeAllObjects];
             self.availableChatRooms = [objects mutableCopy];
+            NSLog(@"%@", self.availableChatRooms);
             [self.tableView reloadData];
         }
     }];
@@ -101,9 +104,7 @@
     PFUser *currentUser = [PFUser currentUser];
     
     PFUser *testUser1 = chatRoom[kCCChatRoomUser1Key];
-    NSLog(@"currentUser - %@, testUser1 - %@",currentUser.objectId, testUser1.objectId);
-    NSLog(@"currentUser (hash) - %lu, testUser1 (hash) - %lu",(unsigned long)currentUser.objectId.hash, (unsigned long)testUser1.objectId.hash);
-
+    
     if ([testUser1.objectId isEqual:currentUser.objectId]) {
         NSLog(@"Yes Equal");
         likedUser = [chatRoom objectForKey:kCCChatRoomUser2Key];
@@ -116,13 +117,10 @@
     NSLog(@"MuMatchesVIewController Line 115: testUser1 - %@, likedUser - %@, currentUser - %@", testUser1.objectId, likedUser.objectId, currentUser.objectId);
     
     cell.textLabel.text = likedUser[kCCUserProfileKey][kCCUserProfileFirstNameKey];
-    NSLog(@"%@", cell.textLabel.text);
-    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *stringFromDate = [formatter stringFromDate:chatRoom.createdAt];
     cell.detailTextLabel.text = stringFromDate;
-    
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     PFQuery *queryForPhoto = [[PFQuery alloc] initWithClassName:kCCPhotoClassKey];
@@ -137,6 +135,8 @@
             }];
         }
     }];
+
+    
     return cell;
 }
 
