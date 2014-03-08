@@ -64,21 +64,26 @@
 
 -(void) updateAvailableChatRooms
 {
+    //Main Query
     PFQuery *query = [PFQuery queryWithClassName:kCCChatRoomClassKey];
-    [query whereKey:kCCChatRoomUser1Key equalTo:[PFUser currentUser]];
-     
+    //Sub Query
+    PFQuery *innerQuery = [PFUser query];
+    [innerQuery whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    
+    [query whereKey:kCCChatRoomUser1Key matchesKey:@"objectId" inQuery:innerQuery];
+    
     PFQuery *queryInverse = [PFQuery queryWithClassName:kCCChatRoomClassKey];
-    [query whereKey:kCCChatRoomUser2Key equalTo:[PFUser currentUser]];
+    [queryInverse whereKey:kCCChatRoomUser2Key matchesKey:@"objectId" inQuery:innerQuery];
+
      
     PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
-    //[queryCombined includeKey:kCCChatRoomClassKey];
+    [queryCombined includeKey:kCCChatRoomClassKey];
     [queryCombined includeKey:kCCChatRoomUser1Key];
     [queryCombined includeKey:kCCChatRoomUser2Key];
     [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self.availableChatRooms removeAllObjects];
             self.availableChatRooms = [objects mutableCopy];
-            NSLog(@"%@", self.availableChatRooms);
             [self.tableView reloadData];
         }
     }];
